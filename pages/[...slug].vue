@@ -7,4 +7,9 @@
 		<h1>Welcome</h1>
 	</section>
 </template>
-<style scoped></style>
+<style scoped lang="scss">
+h1 {
+	color: red;
+	background: $bg-color;
+}
+</style>
