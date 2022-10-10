@@ -1,4 +1,6 @@
 import { defineStore } from 'pinia';
+import { useFetchConfig } from '../composables/fetchConfig';
+// const config = useRuntimeConfig();
 
 export const useSettingsStore = defineStore({
 	id: 'settings',
@@ -14,7 +16,8 @@ export const useSettingsStore = defineStore({
 
 	actions: {
 		async loadSettings() {
-			const data = await $fetch('/others/settings');
+			const config = useFetchConfig();
+			const data = await $fetch('/api/v2/others/settings', config);
 
 			if (data) {
 				this.settings = data;

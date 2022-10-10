@@ -1,7 +1,7 @@
 export default defineNuxtConfig({
-	app: {
-		baseURL: '',
-	},
+	// app: {
+	// 	baseURL: '',
+	// },
 	modules: ['@pinia/nuxt'],
 	vite: {
 		css: {
@@ -14,12 +14,18 @@ export default defineNuxtConfig({
 			},
 		},
 	},
-
 	runtimeConfig: {
-		// app: {
-		// },
 		public: {
-			baseURL: '',
+			apiBase: process.env.NUXT_PUBLIC_API_BASEURL || 'http://localhost:8000',
 		},
 	},
+	// publicRuntimeConfig: {
+	// 	host:
+	// 		process.env.VUE_APP_STATIC_HOST ||
+	// 		process.env.VUE_APP_DEVBROWSERHOST ||
+	// 		process.env.VUE_APP_DEVHOST ||
+	// 		'http://localhost:8000',
+	// 	siteUrl: process.env.SITE_URL || 'http://localhost:3000',
+	// 	baseURL: process.env.VUE_APP_DEVHOST,
+	// },
 });
