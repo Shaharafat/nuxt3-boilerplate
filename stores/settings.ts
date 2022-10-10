@@ -1,6 +1,5 @@
 import { defineStore } from 'pinia';
 import { useFetchConfig } from '../composables/fetchConfig';
-// const config = useRuntimeConfig();
 
 export const useSettingsStore = defineStore({
 	id: 'settings',

@@ -11,19 +11,22 @@ const { data, pending, error, refresh } = useAsyncData<PageContent | null>(
 
 const pageData = data;
 const pageType = data.value?.meta?.type.split('.')[1];
-const hero_slider = resolveComponent('BlocksHeroSlider');
-const image_and_list_text = resolveComponent('BlocksHeroSlider');
-const image_and_list_image_text = resolveComponent('BlocksHeroSlider');
-const businesses = resolveComponent('BlocksHeroSlider');
-const world_map = resolveComponent('BlocksHeroSlider');
-const animated_logo_carousel = resolveComponent('BlocksHeroSlider');
+
+function getComp(compName) {
+	switch (compName) {
+		case 'hero_slider':
+			return resolveComponent('LazyBlocksHeroSlider');
+		case 'image_and_list_text':
+			return resolveComponent('LazyBlocksHeroSlider');
+	}
+}
 onMounted(() => {});
 </script>
 
 <template>
 	<div v-if="!pending">
 		<component
-			:is="data.type"
+			:is="getComp(data.type)"
 			v-for="(data, idx) in pageData?.body"
 			:key="idx"
 		/>
