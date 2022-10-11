@@ -1,5 +1,7 @@
 <script setup lang="ts">
 import { PageContent } from '~/types';
+import gsap from 'gsap';
+import HeroSlider from 'blocks/HeroSlider.vue';
 const config = useFetchConfig();
 const route = useRoute();
 
@@ -12,21 +14,23 @@ const { data, pending, error, refresh } = useAsyncData<PageContent | null>(
 const pageData = data;
 const pageType = data.value?.meta?.type.split('.')[1];
 
-function getComp(compName) {
-	switch (compName) {
-		case 'hero_slider':
-			return resolveComponent('LazyBlocksHeroSlider');
-		case 'image_and_list_text':
-			return resolveComponent('LazyBlocksHeroSlider');
-	}
-}
-onMounted(() => {});
+const components = {
+	hero_slider: HeroSlider,
+};
+onMounted(() => {
+	const head = document.querySelector('h1');
+	const tl = gsap.timeline();
+	tl.to(head, {
+		y: 100,
+	});
+});
 </script>
 
 <template>
 	<div v-if="!pending">
+		<h1>roboto</h1>
 		<component
-			:is="getComp(data.type)"
+			:is="components[data.type]"
 			v-for="(data, idx) in pageData?.body"
 			:key="idx"
 		/>
@@ -41,6 +45,7 @@ onMounted(() => {});
 </template>
 <style scoped lang="scss">
 h1 {
+	font-family: roboto;
 	color: red;
 	background: $bg-color;
 }
