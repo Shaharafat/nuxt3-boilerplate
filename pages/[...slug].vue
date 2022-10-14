@@ -1,7 +1,10 @@
 <script setup lang="ts">
-import { PageContent } from '~/types';
-import gsap from 'gsap';
 import HeroSlider from 'blocks/HeroSlider.vue';
+import gsap from 'gsap';
+import { PageContent } from '~/types';
+// import inkline from '@inkline/nuxt'
+import { Ibutton } from '@inkline/inkline';
+
 const config = useFetchConfig();
 const route = useRoute();
 
@@ -34,6 +37,7 @@ onMounted(() => {
 			v-for="(data, idx) in pageData?.body"
 			:key="idx"
 		/>
+		<i-button>Test Button</i-button>
 
 		<!-- <component
 			:is="pageType"

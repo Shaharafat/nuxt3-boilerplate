@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'node:url';
 export default defineNuxtConfig({
-	modules: ['@pinia/nuxt', '@nuxtjs/google-fonts'],
+	modules: ['@pinia/nuxt', '@nuxtjs/google-fonts', '@inkline/nuxt'],
 	alias: {
 		utils: fileURLToPath(new URL('./utils', import.meta.url)),
 		store: fileURLToPath(new URL('./stores', import.meta.url)),
@@ -35,12 +35,6 @@ export default defineNuxtConfig({
 		},
 	},
 
-	// GOOGLE FONTS
-	googleFonts: {
-		families: {
-			Roboto: true,
-		},
-	},
 	// SHARED BUILD CONFIGURATION
 	build: {
 		/*
@@ -50,4 +44,15 @@ export default defineNuxtConfig({
 		*/
 		transpile: ['gsap'],
 	},
+
+	// ANCHOR THIRD PARTH MODULE CONFIGURATION
+	// Google Fonts
+	googleFonts: {
+		families: {
+			Roboto: true,
+		},
+	},
+
+	// Inkline Plugin Options
+	inkline: { colorMode: 'system' },
 });
