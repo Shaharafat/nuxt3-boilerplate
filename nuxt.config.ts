@@ -20,6 +20,12 @@ export default defineNuxtConfig({
 				},
 			},
 		},
+		optimizeDeps: {
+			include:
+				process.env.NODE_ENV === 'development'
+					? ['naive-ui', 'vueuc', 'date-fns-tz/esm/formatInTimeZone']
+					: [],
+		},
 	},
 	runtimeConfig: {
 		public: {
@@ -42,7 +48,16 @@ export default defineNuxtConfig({
 		you can add them here. Each item in transpile can be a package name, 
 		a function, a string or regex object matching the dependency's file name.
 		*/
-		transpile: ['gsap'],
+		transpile:
+			process.env.NODE_ENV === 'production'
+				? [
+						'naive-ui',
+						'vueuc',
+						'@css-render/vue3-ssr',
+						'@juggle/resize-observer',
+						'gsap',
+				  ]
+				: ['@juggle/resize-observer', 'gsap'],
 	},
 
 	// ANCHOR THIRD PARTH MODULE CONFIGURATION

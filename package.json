@@ -8,9 +8,11 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "naive-ui": "^2.33.5",
     "nuxt": "3.0.0-rc.11"
   },
   "dependencies": {
+    "@css-render/vue3-ssr": "^0.15.11",
     "@nuxtjs/google-fonts": "^3.0.0-0",
     "@pinia/nuxt": "^0.4.2",
     "gsap": "^3.11.3",
