@@ -6,7 +6,7 @@ import {
   NMessageProvider,
 } from 'naive-ui'
 interface own extends GlobalThemeOverrides {
-  btnColor: 'yellow'
+  btnColor: string
 }
 const themeOverrides: own = {
   btnColor: 'yellow',
