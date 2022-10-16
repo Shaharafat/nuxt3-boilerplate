@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'node:url';
 export default defineNuxtConfig({
-	modules: ['@pinia/nuxt', '@nuxtjs/google-fonts', '@inkline/nuxt'],
+	modules: ['@pinia/nuxt', '@nuxtjs/google-fonts'],
 	alias: {
 		utils: fileURLToPath(new URL('./utils', import.meta.url)),
 		store: fileURLToPath(new URL('./stores', import.meta.url)),
@@ -52,7 +52,4 @@ export default defineNuxtConfig({
 			Roboto: true,
 		},
 	},
-
-	// Inkline Plugin Options
-	inkline: { colorMode: 'system' },
 });
