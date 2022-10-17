@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import HeroSlider from 'blocks/HeroSlider.vue'
 import { NButton, NCard, NH1, useMessage, useThemeVars } from 'naive-ui'
-
 import { PageContent } from '~/types'
 
 const config = useFetchConfig()

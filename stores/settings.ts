@@ -16,11 +16,13 @@ export const useSettingsStore = defineStore({
   actions: {
     async loadSettings() {
       const config = useFetchConfig()
-      const data = await $fetch('/api/v2/others/settings', config)
-
-      if (data) {
-        this.settings = data
-      }
+      await $fetch('/api/v2/others/settings', config)
+        .then((data) => {
+          this.settings = data
+        })
+        .catch((error) => {
+          console.log('ERROR: Loading Settings')
+        })
     },
   },
 })
