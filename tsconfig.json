@@ -1,7 +1,6 @@
 {
-	// https://v3.nuxtjs.org/concepts/typescript
-	"extends": "./.nuxt/tsconfig.json",
-	"compilerOptions": {
-		"types": ["naive-ui/volar"]
-	}
+  "extends": "./.nuxt/tsconfig.json",
+  "compilerOptions": {
+    "types": ["naive-ui/volar"]
+  }
 }

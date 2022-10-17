@@ -1,31 +1,6 @@
 <script setup lang="ts">
-import {
-  GlobalThemeOverrides,
-  NConfigProvider,
-  NGlobalStyle,
-  NMessageProvider,
-} from 'naive-ui'
-interface own extends GlobalThemeOverrides {
-  btnColor: string
-}
-const themeOverrides: own = {
-  btnColor: 'yellow',
-
-  common: {
-    primaryColor: 'red',
-    primaryColorHover: 'red',
-  },
-  Button: {
-    textColor: 'yellow',
-  },
-  Select: {
-    peers: {
-      InternalSelection: {
-        textColor: 'blue',
-      },
-    },
-  },
-}
+import { NConfigProvider, NGlobalStyle, NMessageProvider } from 'naive-ui'
+import { themeOverrides } from './theme.ts'
 </script>
 <template>
   <div>

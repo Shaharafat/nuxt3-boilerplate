@@ -1,26 +1,26 @@
-import { defineStore } from 'pinia';
-import { useFetchConfig } from '../composables/fetchConfig';
+import { defineStore } from 'pinia'
+import { useFetchConfig } from '../composables/fetchConfig'
 
 export const useSettingsStore = defineStore({
-	id: 'settings',
-	state: () => {
-		return {
-			settings: {},
-		};
-	},
+  id: 'settings',
+  state: () => {
+    return {
+      settings: {},
+    }
+  },
 
-	getters: {
-		getAllSettings: (state) => state.settings,
-	},
+  getters: {
+    getAllSettings: (state) => state.settings,
+  },
 
-	actions: {
-		async loadSettings() {
-			const config = useFetchConfig();
-			const data = await $fetch('/api/v2/others/settings', config);
+  actions: {
+    async loadSettings() {
+      const config = useFetchConfig()
+      const data = await $fetch('/api/v2/others/settings', config)
 
-			if (data) {
-				this.settings = data;
-			}
-		},
-	},
-});
+      if (data) {
+        this.settings = data
+      }
+    },
+  },
+})
