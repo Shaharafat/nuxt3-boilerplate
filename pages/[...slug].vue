@@ -21,7 +21,7 @@ const createMessage = () => {
 // const pageType = data.value?.meta?.type.split('.')[1]
 const theme = useThemeVars()
 
-const components = {
+const components: any = {
   hero_slider: HeroSlider,
 }
 onMounted(() => {

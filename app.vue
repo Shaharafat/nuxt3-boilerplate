@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { NConfigProvider, NGlobalStyle, NMessageProvider } from 'naive-ui'
-import { themeOverrides } from './theme.ts'
+import { themeOverrides } from './theme.js'
 </script>
 <template>
   <div>
