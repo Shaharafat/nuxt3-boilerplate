@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { NButton, NCard, NH1, useMessage, useThemeVars } from 'naive-ui'
+import { PageContent } from 'types'
 import HeroSlider from '~~/components/blocks/HeroSlider.vue'
 
 const { config } = useFetchConfig()
@@ -7,19 +8,16 @@ const route = useRoute()
 const message = useMessage()
 const theme = useThemeVars()
 
-const { pageData, pageType } = await usePageDataFetch(route)
-// const { data, error } = await useAsyncData<PageContent | null>(
-//   'pageData',
-//   () => {
-//     console.log('fetching')
-//     return $fetch(
-//       `/api/v2/pages/find?format=json&html_path=${route.fullPath}`,
-//       config
-//     )
-//   }
-// )
-// const pageData = data
-// const pageType = data.value?.meta?.type?.split('.')[1]
+// const { pageData, pageType } = await usePageDataFetch(route)
+const { data, error } = await useAsyncData<PageContent | null>('pageData', () =>
+  $fetch(`/api/v2/pages/find?format=json&html_path=${route.fullPath}`, config)
+)
+if (data) {
+  console.log(data)
+}
+const pageData = data
+
+const pageType = data.value?.meta?.type?.split('.')[1]
 
 const createMessage = () => {
   message.warning('This is a warning')
@@ -62,7 +60,6 @@ h1 {
 }
 
 .test {
-  // background: red;
   & :deep(input) {
     font-size: 2rem;
   }
