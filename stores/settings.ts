@@ -21,6 +21,7 @@ export const useSettingsStore = defineStore({
           this.settings = data
         })
         .catch((error) => {
+          console.log(error)
           console.log('ERROR: Loading Settings')
         })
     },

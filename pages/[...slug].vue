@@ -1,28 +1,34 @@
 <script setup lang="ts">
-import HeroSlider from 'blocks/HeroSlider.vue'
 import { NButton, NCard, NH1, useMessage, useThemeVars } from 'naive-ui'
+import HeroSlider from '~~/components/blocks/HeroSlider.vue'
 
+const { config } = useFetchConfig()
 const route = useRoute()
 const message = useMessage()
+const theme = useThemeVars()
 
 const { pageData, pageType } = await usePageDataFetch(route)
+// const { data, error } = await useAsyncData<PageContent | null>(
+//   'pageData',
+//   () => {
+//     console.log('fetching')
+//     return $fetch(
+//       `/api/v2/pages/find?format=json&html_path=${route.fullPath}`,
+//       config
+//     )
+//   }
+// )
+// const pageData = data
+// const pageType = data.value?.meta?.type?.split('.')[1]
 
 const createMessage = () => {
   message.warning('This is a warning')
 }
 
-const theme = useThemeVars()
-
 const components: any = {
   hero_slider: HeroSlider,
 }
-onMounted(() => {
-  // const head = document.querySelector('h1')
-  // const tl = gsap.timeline()
-  // tl.to(head, {
-  //   y: 100,
-  // })
-})
+onMounted(() => {})
 </script>
 
 <template>
@@ -33,6 +39,7 @@ onMounted(() => {
       :is="components[data.type]"
       v-for="(data, idx) in pageData?.body"
       :key="idx"
+      :comp-data="data"
     />
 
     <!-- <component
@@ -51,8 +58,6 @@ onMounted(() => {
 </template>
 <style scoped lang="scss">
 h1 {
-  // font-family: roboto;
-  // color: red;
   background: $bg-color;
 }
 
