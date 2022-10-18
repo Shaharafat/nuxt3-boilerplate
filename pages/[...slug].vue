@@ -1,24 +1,16 @@
 <script setup lang="ts">
 import HeroSlider from 'blocks/HeroSlider.vue'
 import { NButton, NCard, NH1, useMessage, useThemeVars } from 'naive-ui'
-import { PageContent } from '~/types'
 
-const config = useFetchConfig()
 const route = useRoute()
 const message = useMessage()
 
-const { data, pending, error, refresh } =
-  await useAsyncData<PageContent | null>('pageData', () =>
-    $fetch(`/api/v2/pages/find?format=json&html_path=${route.fullPath}`, config)
-  )
-const { pageData, pageType } = usePageData(data)
+const { pageData, pageType } = await usePageDataFetch(route)
 
 const createMessage = () => {
   message.warning('This is a warning')
 }
 
-// const pageData = data
-// const pageType = data.value?.meta?.type.split('.')[1]
 const theme = useThemeVars()
 
 const components: any = {
@@ -34,7 +26,7 @@ onMounted(() => {
 </script>
 
 <template>
-  <div v-if="!pending">
+  <div>
     <n-h1 style="color: theme.primaryColor">roboto</n-h1>
     <n-button type="primary" @click="createMessage">Primary Button</n-button>
     <component

@@ -55,6 +55,7 @@ export default defineNuxtConfig({
             'vueuc',
             '@css-render/vue3-ssr',
             '@juggle/resize-observer',
+            'gsap',
           ]
         : ['@juggle/resize-observer', 'gsap'],
   },

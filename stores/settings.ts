@@ -15,7 +15,7 @@ export const useSettingsStore = defineStore({
 
   actions: {
     async loadSettings() {
-      const config = useFetchConfig()
+      const { config } = useFetchConfig()
       await $fetch('/api/v2/others/settings', config)
         .then((data) => {
           this.settings = data

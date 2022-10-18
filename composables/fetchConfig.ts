@@ -1,5 +1,7 @@
 export const useFetchConfig = () => {
-	const config = useRuntimeConfig();
-	// console.log(config);
-	return { baseURL: config.public.apiBase };
-};
+  const config = useRuntimeConfig()
+  return {
+    config: { baseURL: config.public.apiBase },
+    host: config.public.host,
+  }
+}

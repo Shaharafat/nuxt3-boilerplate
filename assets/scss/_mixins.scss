@@ -1,0 +1,111 @@
+@mixin full-gen($bp, $dm) {
+  .full-#{$dm}-#{$bp} {
+    .wg-img {
+      @include media-breakpoint-down(#{$bp}) {
+        #{$dm}: 100%;
+      }
+    }
+  }
+}
+
+// $c-padding: (
+//   'xs': 20,
+//   'sm': 30,
+//   'md': 40,
+//   'lg': 60,
+//   'xl': 80,
+// );
+
+$paddings: (
+  'xs': 40,
+  'sm': 40,
+  'md': 40,
+  'lg': 60,
+  'xl': 80,
+);
+
+@mixin section-padding($pd: $paddings) {
+  @each $breakpoint, $value in $pd {
+    @include media-breakpoint-up(#{$breakpoint}) {
+      padding-top: #{$value + px};
+      padding-bottom: #{$value + px};
+    }
+  }
+}
+@mixin section-padding-top($pd: $paddings) {
+  @each $breakpoint, $value in $pd {
+    @include media-breakpoint-up(#{$breakpoint}) {
+      padding-top: #{$value + px};
+    }
+  }
+}
+
+@mixin section-padding-bottom($pd: $paddings) {
+  @each $breakpoint, $value in $pd {
+    @include media-breakpoint-up(#{$breakpoint}) {
+      padding-bottom: #{$value + px};
+    }
+  }
+}
+
+// @mixin content-padding($pd: $c-padding) {
+//   @each $breakpoint, $value in $pd {
+//     @include media-breakpoint-up(#{$breakpoint}) {
+//       padding-top: #{$value + px};
+//       padding-bottom: #{$value + px};
+//     }
+//   }
+// }
+
+// @mixin content-padding-top($pd: $c-padding) {
+//   @each $breakpoint, $value in $pd {
+//     @include media-breakpoint-up(#{$breakpoint}) {
+//       padding-top: #{$value + px};
+//     }
+//   }
+// }
+
+// @mixin content-padding-bottom($pd: $c-padding) {
+//   @each $breakpoint, $value in $pd {
+//     @include media-breakpoint-up(#{$breakpoint}) {
+//       padding-bottom: #{$value + px};
+//     }
+//   }
+// }
+
+@mixin res-font($min, $max) {
+  font-size: calc(
+    #{$min}px + (#{$max} - #{$min}) * ((100vw - 360px) / (1920 - 360))
+  ) !important;
+}
+
+@mixin res-line($min, $max) {
+  line-height: calc(
+    #{$min}px + (#{$max} - #{$min}) * ((100vw - 360px) / (1920 - 360))
+  );
+}
+
+@mixin res-margin($pos, $min, $max) {
+  margin#{$pos}: calc(
+    #{$min}px + (#{$max} - #{$min}) * ((100vw - 360px) / (1920 - 360))
+  );
+}
+
+$breakpoints: (
+  'sm': '576px',
+  'md': '768px',
+  'lg': '992px',
+  'xl': '1200px',
+  'xxl': '1400px',
+  'xxxl': '1600px',
+  'xxxxl': '1900px',
+  'ultraXl': '21000px',
+);
+
+// @each $bp, $value in $bps {
+//   @mixin media-#{$bp}-up($bps: $breakpoints) {
+//     @media (min-width: $value) {
+//       @content;
+//     }
+//   }
+// }
