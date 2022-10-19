@@ -1,6 +1,12 @@
 <script setup lang="ts">
 import gsap from 'gsap'
-import { NH1, useMessage, useThemeVars } from 'naive-ui'
+import {
+  NGrid,
+  NGridItem as NGi,
+  NH1,
+  useMessage,
+  useThemeVars,
+} from 'naive-ui'
 import type { PageContent } from 'types'
 import HeroSlider from '~~/components/blocks/HeroSlider.vue'
 
@@ -34,7 +40,7 @@ function animation() {
     {
       opacity: 0,
     },
-    { opacity: 1 }
+    { opacity: 1, duration: 1 }
   )
 }
 onMounted(() => {
@@ -52,6 +58,33 @@ onMounted(() => {
       >
         Yeeeyyyy! We are using Nuxt 3
       </NH1>
+      <n-grid x-gap="12" y-gap="20" :cols="4">
+        <n-gi>
+          <div class="light-green" />
+        </n-gi>
+        <n-gi>
+          <div class="green" />
+        </n-gi>
+        <n-gi>
+          <div class="light-green" />
+        </n-gi>
+        <n-gi>
+          <div class="green" />
+        </n-gi>
+
+        <n-gi>
+          <div class="green" />
+        </n-gi>
+        <n-gi>
+          <div class="green" />
+        </n-gi>
+        <n-gi>
+          <div class="green" />
+        </n-gi>
+        <n-gi>
+          <div class="green" />
+        </n-gi>
+      </n-grid>
     </section>
     <!-- <section class="section-padding-bottom" style="background: theme.baseColor">
       <n-h1
@@ -108,5 +141,13 @@ h1 {
 
 [data-anim='page-header'] {
   opacity: 0;
+}
+.light-green {
+  height: 108px;
+  background-color: rgba(0, 128, 0, 0.12);
+}
+.green {
+  height: 108px;
+  background-color: rgba(0, 128, 0, 0.24);
 }
 </style>
