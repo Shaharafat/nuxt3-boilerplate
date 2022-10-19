@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { NButton, NCard, NH1, useMessage, useThemeVars } from 'naive-ui'
+import gsap from 'gsap'
+import { NH1, useMessage, useThemeVars } from 'naive-ui'
 import type { PageContent } from 'types'
 import HeroSlider from '~~/components/blocks/HeroSlider.vue'
 
@@ -25,13 +26,37 @@ const createMessage = () => {
 const components: any = {
   hero_slider: HeroSlider,
 }
-onMounted(() => {})
+function animation() {
+  const tl = gsap.timeline({})
+  const header = document.querySelector('[data-anim="page-header"]')
+  tl.fromTo(
+    header,
+    {
+      opacity: 0,
+    },
+    { opacity: 1 }
+  )
+}
+onMounted(() => {
+  animation()
+})
 </script>
 
 <template>
-  <div>
-    <section class="section-padding-bottom custom-container">
-      <n-h1 style="color: theme.primaryColor; font-family: roboto"
+  <div class="custom-container">
+    <section class="section-padding">
+      <NH1
+        style="font-family: roboto"
+        class="section-title flex justify-center"
+        data-anim="page-header"
+      >
+        Yeeeyyyy! We are using Nuxt 3
+      </NH1>
+    </section>
+    <!-- <section class="section-padding-bottom" style="background: theme.baseColor">
+      <n-h1
+        style="color: theme.primaryColor; font-family: roboto"
+        class="custom-container"
         >Yeyyyy! We are using Nuxt 3</n-h1
       >
     </section>
@@ -39,7 +64,7 @@ onMounted(() => {})
 
     <n-card title="Card" :header-style="{ backgroundColor: theme.baseColor }">
       Card Content
-    </n-card>
+    </n-card> -->
     <!-- <component
       :is="components[data.type]"
       v-for="(data, idx) in pageData?.body"
@@ -70,9 +95,18 @@ h1 {
   }
 }
 
+.section-title {
+  font-size: 3rem;
+  font-weight: $bold;
+}
+
 .test {
   & :deep(input) {
     font-size: 2rem;
   }
+}
+
+[data-anim='page-header'] {
+  opacity: 0;
 }
 </style>

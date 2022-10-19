@@ -17,7 +17,7 @@ export default defineNuxtConfig({
         // This SCSS option below will make available SCSS codes globally.
         scss: {
           additionalData:
-            '@use "@/assets/scss/_variables.scss" as *;  @use "@/assets/scss/_mixins.scss" as *;',
+            '@use "@/assets/scss/_variables.scss" as *;  @use "@/assets/scss/_mixins.scss" as *; @use "@/assets/scss/_utilities.scss" as *;',
         },
       },
     },
