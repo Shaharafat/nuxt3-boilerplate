@@ -1,1 +1,61 @@
-$bg-color: blue; ;
+// Breakpoints
+$sm: 576;
+$md: 768;
+$lg: 992;
+$xl: 1200;
+$xxl: 1400;
+$xxxl: 1600;
+$xxxxl: 1900;
+$ultraXl: 2100;
+
+// Font Weight
+$thin: 300;
+$regular: 400;
+$medium: 500;
+$semiBold: 600;
+$bold: 700;
+$extraBold: 800;
+$ultraBold: 900;
+
+// Breakpoints
+// $breakpoints: (
+//   'sm': '576px',
+//   'md': '768px',
+//   'lg': '992px',
+//   'xl': '1200px',
+//   'xxl': '1400px',
+//   'xxxl': '1600px',
+//   'xxxxl': '1900px',
+//   'ultraXl': '2100px',
+// );
+
+// Paddings
+$paddings: (
+  $sm: 30,
+  $md: 40,
+  $lg: 60,
+  $xl: 80,
+);
+
+// CUSTOMIZATION
+// NOTE This two variables
+$grid-breakpoints: (
+  xs: 0,
+  sm: 576px,
+  md: 768px,
+  lg: 1024px,
+  xl: 1200px,
+  xxl: 1400px,
+  xxxl: 1600px,
+  xxxxl: 1925px,
+  ultraxl: 1926px,
+);
+
+$container-max-widths: (
+  lg: 960px,
+  xl: 1140px,
+  xxl: 1320px,
+  xxxl: 1400px,
+  xxxxl: 1520px,
+  ultraxl: 1560px,
+);

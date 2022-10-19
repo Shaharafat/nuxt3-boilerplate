@@ -1,28 +1,25 @@
-@mixin full-gen($bp, $dm) {
-  .full-#{$dm}-#{$bp} {
-    .wg-img {
-      @include media-breakpoint-down(#{$bp}) {
-        #{$dm}: 100%;
-      }
-    }
+// @mixin full-gen($bp, $dm) {
+//   .full-#{$dm}-#{$bp} {
+//     .wg-img {
+//       @include media-breakpoint-down(#{$bp}) {
+//         #{$dm}: 100%;
+//       }
+//     }
+//   }
+// }
+@use './variables' as *;
+
+@mixin media-breakpoint-up($bp) {
+  @media only screen and (min-width: #{$bp}px) {
+    @content;
   }
 }
 
-// $c-padding: (
-//   'xs': 20,
-//   'sm': 30,
-//   'md': 40,
-//   'lg': 60,
-//   'xl': 80,
-// );
-
-$paddings: (
-  'xs': 40,
-  'sm': 40,
-  'md': 40,
-  'lg': 60,
-  'xl': 80,
-);
+@mixin media-breakpoint-down($bp) {
+  @media only screen and (min-width: #{$bp}px) {
+    @content;
+  }
+}
 
 @mixin section-padding($pd: $paddings) {
   @each $breakpoint, $value in $pd {
@@ -48,31 +45,6 @@ $paddings: (
   }
 }
 
-// @mixin content-padding($pd: $c-padding) {
-//   @each $breakpoint, $value in $pd {
-//     @include media-breakpoint-up(#{$breakpoint}) {
-//       padding-top: #{$value + px};
-//       padding-bottom: #{$value + px};
-//     }
-//   }
-// }
-
-// @mixin content-padding-top($pd: $c-padding) {
-//   @each $breakpoint, $value in $pd {
-//     @include media-breakpoint-up(#{$breakpoint}) {
-//       padding-top: #{$value + px};
-//     }
-//   }
-// }
-
-// @mixin content-padding-bottom($pd: $c-padding) {
-//   @each $breakpoint, $value in $pd {
-//     @include media-breakpoint-up(#{$breakpoint}) {
-//       padding-bottom: #{$value + px};
-//     }
-//   }
-// }
-
 @mixin res-font($min, $max) {
   font-size: calc(
     #{$min}px + (#{$max} - #{$min}) * ((100vw - 360px) / (1920 - 360))
@@ -89,97 +61,4 @@ $paddings: (
   margin#{$pos}: calc(
     #{$min}px + (#{$max} - #{$min}) * ((100vw - 360px) / (1920 - 360))
   );
-}
-
-$breakpoints: (
-  'sm': '576px',
-  'md': '768px',
-  'lg': '992px',
-  'xl': '1200px',
-  'xxl': '1400px',
-  'xxxl': '1600px',
-  'xxxxl': '1900px',
-  'ultraXl': '2100px',
-);
-
-@mixin media-sm-up {
-  @media (min-width: 576px) {
-    @content;
-  }
-}
-@mixin media-md-up {
-  @media (min-width: 768px) {
-    @content;
-  }
-}
-@mixin media-lg-up {
-  @media (min-width: 992px) {
-    @content;
-  }
-}
-@mixin media-xl-up {
-  @media (min-width: 1200px) {
-    @content;
-  }
-}
-@mixin media-xxl-up {
-  @media (min-width: 1400px) {
-    @content;
-  }
-}
-@mixin media-xxxl-up {
-  @media (min-width: 1600px) {
-    @content;
-  }
-}
-@mixin media-xxxxl-up {
-  @media (min-width: 1900px) {
-    @content;
-  }
-}
-@mixin media-ultraxl-up {
-  @media (min-width: 2100px) {
-    @content;
-  }
-}
-
-@mixin media-sm-down {
-  @media (max-width: 576px) {
-    @content;
-  }
-}
-@mixin media-md-down {
-  @media (max-width: 768px) {
-    @content;
-  }
-}
-@mixin media-lg-down {
-  @media (max-width: 992px) {
-    @content;
-  }
-}
-@mixin media-xl-down {
-  @media (max-width: 1200px) {
-    @content;
-  }
-}
-@mixin media-xxl-down {
-  @media (max-width: 1400px) {
-    @content;
-  }
-}
-@mixin media-xxxl-down {
-  @media (max-width: 1600px) {
-    @content;
-  }
-}
-@mixin media-xxxxl-down {
-  @media (max-width: 1900px) {
-    @content;
-  }
-}
-@mixin media-ultraxl-down {
-  @media (max-width: 2100px) {
-    @content;
-  }
 }
