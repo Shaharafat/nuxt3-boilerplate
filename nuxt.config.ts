@@ -1,6 +1,6 @@
 import { fileURLToPath } from 'node:url'
 export default defineNuxtConfig({
-  modules: ['@pinia/nuxt', '@nuxtjs/google-fonts'],
+  modules: ['@pinia/nuxt', '@nuxtjs/google-fonts', '@nuxt/image-edge'],
   alias: {
     utils: fileURLToPath(new URL('./utils', import.meta.url)),
     store: fileURLToPath(new URL('./stores', import.meta.url)),

@@ -8,12 +8,8 @@ const { compData, id } = defineProps<CompProps>()
 </script>
 <template>
   <h1>HeroSlider</h1>
-  {{ compData }}
-  <div
-    v-for="(slide, idx) in compData.value.slides"
-    :key="idx"
-    class="custom-container"
-  >
+  <!-- {{ compData }} -->
+  <div v-for="(slide, idx) in compData.value.slides" :key="idx" class="">
     <WGImage :image="slide.image" />
   </div>
 </template>

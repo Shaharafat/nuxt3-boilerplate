@@ -8,6 +8,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
+    "@nuxt/image-edge": "^1.0.0-27769790.4b27db3",
     "naive-ui": "^2.33.5",
     "nuxt": "3.0.0-rc.11"
   },

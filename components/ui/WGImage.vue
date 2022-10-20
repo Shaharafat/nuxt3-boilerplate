@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { NImage } from 'naive-ui'
 import { Image } from 'types'
 interface ImageCompProps {
   image: Image
@@ -60,8 +59,47 @@ const options = computed(() => {
       v-if="options.originalFallbackSrc"
       :srcset="HOST + options.originalSrc"
     />
+    <nuxt-img
+      v-if="lazy"
+      class="wg-img"
+      :src="
+        HOST +
+        (options.originalFallbackSrc
+          ? options.originalFallbackSrc
+          : options.originalSrc)
+      "
+      :alt="options.alternateText"
+      :width="options.width"
+      :height="options.height"
+      fit="cover"
+      loading="lazy"
+    />
 
-    <n-image
+    <nuxt-img
+      v-else
+      class="wg-img"
+      :src="
+        HOST +
+        (options.originalFallbackSrc
+          ? options.originalFallbackSrc
+          : options.originalSrc)
+      "
+      :alt="options.alternateText"
+      :width="options.width"
+      :height="options.height"
+      fit="cover"
+    />
+    <!-- <img
+      class="wg-img"
+      :src="
+        HOST +
+        (options.originalFallbackSrc
+          ? options.originalFallbackSrc
+          : options.originalSrc)
+      "
+    /> -->
+
+    <!-- <n-image
       v-if="lazy"
       class="wg-img"
       :src="
@@ -76,7 +114,7 @@ const options = computed(() => {
       object-fit="cover"
       lazy
       preview-disabled
-    ></n-image>
+    />
 
     <n-image
       v-else
@@ -92,12 +130,12 @@ const options = computed(() => {
       :height="options.height"
       object-fit="cover"
       preview-disabled
-    ></n-image>
+    /> -->
   </picture>
 </template>
 <style scoped lang="scss">
 /* scoped styles code goes here */
-.wg-img :deep(img) {
+.wg-img  {
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -105,7 +143,7 @@ const options = computed(() => {
 }
 
 .full-height {
-  .wg-img :deep(img) {
+  .wg-img  {
     height: 100%;
     width: auto;
   }
@@ -121,7 +159,7 @@ const options = computed(() => {
   }
 } */
 .full-width {
-  .wg-img :deep(img) {
+  .wg-img  {
     width: 100%;
   }
 }
