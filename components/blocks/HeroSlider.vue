@@ -1,11 +1,12 @@
 <script setup lang="ts">
-// code goes here
+interface CompProps {
+  compData: any
+  id: string
+}
+const { compData, id } = defineProps<CompProps>()
 </script>
 <template>
-  <section>
-    <h1>HeroSlider</h1>
-  </section>
+  <h1>HeroSlider</h1>
+  {{}}
 </template>
-<style scoped lang="scss">
-/* scoped styles code goes here */
-</style>
+<style scoped lang="scss"></style>

@@ -76,6 +76,8 @@ declare module 'types' {
     pageData: Ref<PageContent>
     pageType: string
   }
+
+  d
 }
 
-export { PageContent }
+export { PageContent, PageDataReturnType, Body, CompDataType }

@@ -18,7 +18,7 @@ export default defineNuxtConfig({
         scss: {
           additionalData:
             '@use "@/assets/scss/_variables.scss" as *;  @use "@/assets/scss/_mixins.scss" as *; @use "@/assets/scss/_utilities.scss" as *;',
-        },
+        }
       },
     },
     optimizeDeps: {

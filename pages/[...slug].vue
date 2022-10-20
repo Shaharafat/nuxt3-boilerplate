@@ -8,7 +8,7 @@ import {
   useThemeVars,
 } from 'naive-ui'
 import type { PageContent } from 'types'
-import HeroSlider from '~~/components/blocks/HeroSlider.vue'
+import Homepage from '~~/components/pages/Homepage.vue'
 
 const { config } = useFetchConfig()
 const route = useRoute()
@@ -18,19 +18,15 @@ const theme = useThemeVars()
 const { data, error } = await useAsyncData<PageContent | null>('pageData', () =>
   $fetch(`/api/v2/pages/find?format=json&html_path=${route.fullPath}`, config)
 )
-if (data) {
-  console.log(data)
-}
-const pageData = data
 
-const pageType = data.value?.meta?.type?.split('.')[1]
+const { pageData, pageType } = usePageData(data)
 
 const createMessage = () => {
   message.warning('This is a warning')
 }
 
 const components: any = {
-  hero_slider: HeroSlider,
+  HomePage: Homepage,
 }
 function animation() {
   const tl = gsap.timeline({})
@@ -86,34 +82,12 @@ onMounted(() => {
         </n-gi>
       </n-grid>
     </section>
-    <!-- <section class="section-padding-bottom" style="background: theme.baseColor">
-      <n-h1
-        style="color: theme.primaryColor; font-family: roboto"
-        class="custom-container"
-        >Yeyyyy! We are using Nuxt 3</n-h1
-      >
-    </section>
-    <n-button type="primary" @click="createMessage">Primary Button</n-button>
 
-    <n-card title="Card" :header-style="{ backgroundColor: theme.baseColor }">
-      Card Content
-    </n-card> -->
-    <!-- <component
-      :is="components[data.type]"
-      v-for="(data, idx) in pageData?.body"
-      :key="idx"
-      :comp-data="data"
-    /> -->
-
-    <!-- <component
-			:is="pageType"
-			v-if="pageType"
-			:key="route.fullPath"
-			:page-data="pageData.body"
-		/> -->
-    <!-- <n-message-provider placement="top-right">
-      this is a simple message
-    </n-message-provider> -->
+    <component
+      :is="components[pageType]"
+      :key="route.fullPath"
+      :page-data="pageData"
+    />
   </div>
 </template>
 <style scoped lang="scss">
