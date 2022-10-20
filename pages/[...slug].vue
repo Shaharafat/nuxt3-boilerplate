@@ -9,6 +9,7 @@ import {
 } from 'naive-ui'
 import type { PageContent } from 'types'
 import Homepage from '~~/components/pages/Homepage.vue'
+import WGImage from '~~/components/ui/WGImage.vue'
 
 const { config } = useFetchConfig()
 const route = useRoute()
@@ -81,6 +82,8 @@ onMounted(() => {
           <div class="green" />
         </n-gi>
       </n-grid>
+
+      <WGImage />
     </section>
 
     <component

@@ -77,7 +77,23 @@ declare module 'types' {
     pageType: string
   }
 
-  d
+  interface Image {
+    id: number
+    title: string
+    original: Mobile
+    original_fallback: Mobile
+    tab: Mobile
+    tab_fallback: Mobile
+    mobile: Mobile
+    mobile_fallback: Mobile
+  }
+
+  interface Mobile {
+    src: string
+    width: number
+    height: number
+    alt: string
+  }
 }
 
 export { PageContent, PageDataReturnType, Body, CompDataType }
