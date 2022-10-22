@@ -55,7 +55,7 @@ onMounted(() => {
       >
         Yeeeyyyy! We are using Nuxt 3
       </NH1>
-      <n-grid x-gap="12" y-gap="20" :cols="4">
+      <n-grid x-gap="12" y-gap="20" cols="3 lg:4 xxxxl:5" responsive="screen">
         <n-gi>
           <div class="light-green" />
         </n-gi>
